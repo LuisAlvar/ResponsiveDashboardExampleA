@@ -1,0 +1,68 @@
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : 'sidenav'">
+  
+  <div class="logo-container">
+    <button class="logo" (click)="toggleCollapse()">A</button>
+    <div class="logo-text" @onSidenavText_FadeInOut *ngIf="collapsed">Angular</div>
+    <button class="btn-close" @onSidenavBtn_Rotate (click)="closeSidenav()" *ngIf="collapsed" >
+      <mat-icon class="fa-times">closeicon</mat-icon>
+    </button>
+  </div>
+
+  <div class="scrollwrap scrollwrap_delayed">
+
+    <ul class="sidenav-nav">
+     
+      <li class="sidenav-nav-item" *ngFor="let data of navData">
+  
+        <!-- CASE A: if a nav element contains multiple pages, then the design will contain:
+         the data.icon (graph), data.label (statistics), and another icon (indicate when dropdown is open or closeed) -->
+        <a class="sidenav-nav-link"
+          (click)="handleClick(data)"
+          *ngIf="data.items && data.items.length > 0"
+          [ngClass]="getActiveClass(data)"
+        >
+          <mat-icon class="sidenav-link-icon">{{data.icon}}</mat-icon>
+          <span class="sidenav-link-text" @onSidenavText_FadeInOut *ngIf="collapsed">{{data.label}}</span>
+          <mat-icon 
+            *ngIf="data.items && collapsed"
+            class="menu-collapse-icon"
+          >{{!data.expanded ? 'keyboard_arrow_right' : 'keyboard_arrow_down'}}</mat-icon>
+        </a>
+  
+        <!-- CASE B: if a nav element does not contain multiple pages, then the design will contain:
+        the data.icon (graph) and data.label (statistics) -->
+        <a class="sidenav-nav-link" 
+          *ngIf="!data.items || (data.items && data.items.length === 0)"
+          [routerLink] = "[data.routeLink]"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}" 
+          (click)="shrinkItems(data)"
+        >
+          <mat-icon class="sidenav-link-icon">{{data.icon}}</mat-icon>
+          <span class="sidenav-link-text" @onSidenavText_FadeInOut *ngIf="collapsed">{{data.label}}</span>
+        </a>
+  
+        <!-- CASE A2: in the case where the sidenav is open and nav element contains multiple pages,
+         then we want to show a new sub component. We can pass the parent component state variable and 
+         pass then to child component-->
+        <div *ngIf="collapsed && data.items && data.items.length > 0">
+          <!-- note that we need two state variables: (1) for the main sidenav :: collapsed
+           (2) for the nav element with multiple pages: data.expanded -->
+          <app-sublevel-menu
+            [data]="data"
+            [collapsed]="collapsed"
+            [multiple]="multiple"
+            [expanded]="data.expanded"
+          >
+          </app-sublevel-menu>
+        </div>
+  
+  
+      </li>
+    </ul>
+
+  </div>
+
+ 
+  
+</div>

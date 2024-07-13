@@ -1,0 +1,67 @@
+# Notes on Anguler typescript file.
+- window.innerwidth will give you the px size of the <body></body> html width - to the nearest whole number
+- @HostListener declares a DOM event to listen for, and must provides a handler method to run when that event occurs.
+  For example: for sidenav componet the DOM event is window resizing and handler method in this case is onResize(event: any)
+- @Output marks a class field as an output property
+  - in this case, we have EventEmitter<SideNavToggle> event emitter class of type SideNavToggle 
+  - when a parent componet wants to use them
+  ```html
+  <app-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-sidenav>
+  ```
+- Create dynamic animation triggers for example [@onSidenavSubLevelSubmenu_Hidden]="boolean condition ? {animation object} : {animation object}"
+
+
+Decorator that declares a DOM event to listen for, and provides a handler method to run when that event occurs.
+
+Angular invokes the supplied handler method when the host element emits the specified event, and updates the bound element with the result.
+
+If the handler method returns false, applies preventDefault on the bound element.
+
+@usageNotes
+The following example declares a directive that attaches a click listener to a button and counts clicks.
+
+# Notes on Angular html file: html element or Angular directives
+- For a button to trigger some type of functionality you do so with the (click) attribue on the html or angular element
+  ```typescript
+  (click)="functionName(params)"
+  ```
+- You can code custom animation and inject them within a html or angular element: ex @fadeInOut
+  ```typescript
+  <button @fadeInOut ></button>
+  ```
+- You can dynamically render elements by using *ngIf="boolean condition" 
+  - the element will render on the page, if the boolean condition is true. Otherwise, it will not appear.
+
+- You can dynamically change the styling class of an html element based on a boolean condition
+  ```typescript
+  [ngClass]="collapsed ? 'sidenav-collapsed' : 'sidenav'
+  ```
+- When you want to repeat some type of html struture more than once base on some type of list data structure. 
+  *ngFor is the best solution for this:
+  ```typescript
+  <li class="sidenav-nav-item" *ngFor="let data of navData">
+    ...
+  </li>
+  ```
+  - Just like in any other programming language with a foreach loop. 
+    With Angular you can do two unique things with the itervative object.
+  - You can either display the data within the object between the html element as such 
+    ```script
+    <span>{{data.label}}</span>
+    <mat-icon>{{!data.expanded ? 'keyboard_arrow_right' : 'keyboard_arrow_down'}}</mat-icon>
+    ```
+  - Or you can either use it within other angular directive, pass that object to another component, or a function
+    ```script
+    <a *ngIf="data.items && data.items.length > 0"></a>
+
+    <app-sublevel-menu
+        [data]="data"
+    ></app-sublevel-menu>
+
+    <a (click)="handleClick(data)"></a>
+    ```
+  - the odd part when dealing with dynamically setting the routing value: you have to use []
+    ```script
+    <a [routerLink] = "[data.routeLink]"></a>
+    ```
+- 

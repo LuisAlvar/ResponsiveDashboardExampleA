@@ -1,0 +1,38 @@
+
+- ng generate component body --module=app --skip-tests
+- ng generate component coupens --module=app --skip-tests
+- ng generate component dashboard --module=app --skip-tests
+- ng generate component media --module=app --skip-tests
+- ng generate component pages --module=app --skip-tests
+- ng generate component products --module=app --skip-tests
+- ng generate component settings --module=app --skip-tests
+- ng generate component sidenav --module=app --skip-tests
+- Add @angular/material: ng add @angular/material 
+- Add new file angular-material.module.ts file 
+- Edit the sidenav.component.html
+  - *ngif use to dynamically render these elements against a boolean value
+  - [ngClass] use to dynamically set a scss class based on a boolean value
+  - (click) use for buttons where we want to trigger some logic
+  - *ngFor used to create mutiple lists dynamically based on some external data source
+  - routerLinkActive lets you add a CSS class to an element when the link's route becomes active.
+  - routerLinkActiveOptions 
+- Edit the sidenav.component.scss 
+  - the idea is to style the sidenav collapsed or closed. 
+  - the only dynamically style change is the expansion of the width of the sidenav
+
+07/09/2024
+- Edit navdata.ts add a new property called items
+- Add navbardata.ts will contain a new interface which will use in navdata.ts
+- Under /app/sidenav folder create a new component:
+  ng generate component sublevel-menu --inline-template --inline-style --flat true --module=app
+- Under /app/sidenav folder creae a new file sidenav.component.html because its too much html for one .ts file
+- Add sublevel-menu component inside sidenav.component.html
+- 
+
+07/12/2024
+- ng g m coupens --routing --flat true
+- ng g c coupen-list --module=coupens --skip-tests
+- ng g m products --routing --flat true
+- ng g c products-level-three-one --module=products
+- ng g c products-level-three-two --module=products
+

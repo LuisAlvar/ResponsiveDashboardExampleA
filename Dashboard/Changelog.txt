@@ -36,3 +36,5 @@
 - ng g c products-level-three-one --module=products
 - ng g c products-level-three-two --module=products
 
+07/13/2024
+- ng g c header --module=app --skip-tests

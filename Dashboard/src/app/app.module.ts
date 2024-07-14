@@ -16,6 +16,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SublevelMenuComponent } from './sidenav/sublevel-menu.component';
 import { HeaderComponent } from './header/header.component';
 
+import {OverlayModule} from '@angular/cdk/overlay';
+import {CdkMenuModule} from '@angular/cdk/menu';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +36,9 @@ import { HeaderComponent } from './header/header.component';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    OverlayModule, 
+    CdkMenuModule
   ],
   providers: [
   ],

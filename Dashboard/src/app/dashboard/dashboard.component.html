@@ -1,7 +1,113 @@
-<h1>Dashboard</h1>
+
+<h2>Dashboard</h2>
+
+<div [ngClass]="getClass()">
+  <div class="col-left">
+    <div class="card welcome-card">
+      <div class="card-head welcome-head-container">
+        <div class="col-left">
+          <div>Welcome Back !</div>
+          <p>Angular Dashboard</p>
+        </div>
+        <div class="col-right">
+          <img src="profile-bg-3.png" alt="">
+        </div>
+      </div>
+      <div class="card-body welcome-body-container">
+        <div class="col-left">
+          <div class="avatar">
+            <img [src]="'user3.jpg'" alt="">
+          </div>
+          <div class="name">John Doe</div>
+          <p>Full-Stack .NET Developer</p>
+        </div>
+        <div class="col-right">
+
+          <div class="performance-container">
+            <div class="performance">
+              <div>Performance</div>
+              <div>80%</div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar"></div>
+            </div>
+          </div>
+
+          <div class="view-profile">
+            <button>
+              View Profile
+              <mat-icon>keyboard_arrow_right</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col task-col">
+    <div class="task">
+      <span class="bar completed"></span>
+      <div class="details">
+        <div>Completed</div>
+        <p>6 tasks</p>
+      </div>
+      <mat-icon>edit</mat-icon>
+    </div>
+
+    <div class="task">
+      <span class="bar active"></span>
+      <div class="details">
+        <div>Active</div>
+        <p>1 task</p>
+      </div>
+      <mat-icon>edit</mat-icon>
+    </div> 
+
+    <div class="task">
+      <span class="bar new"></span>
+      <div class="details">
+        <div>Assigned</div>
+        <p>12 task</p>
+      </div>
+      <mat-icon>edit</mat-icon>
+    </div>
+    <button>
+      <mat-icon>add</mat-icon>
+      Create New Group
+    </button>
+  </div>
+</div>
+
+
 <div class="card">
   <div class="card-head">Lorem ipsum - dashboard</div>
   <div class="card-body">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar lorem ut gravida luctus. Suspendisse lacinia mi ut mauris ultrices, vitae laoreet eros gravida. Pellentesque sit amet posuere elit, at mollis est. Aliquam pharetra enim quis ultricies placerat. Mauris vulputate ipsum nunc, nec congue leo gravida nec. Pellentesque et augue in quam rutrum eleifend nec ut est. Etiam cursus malesuada sem, at facilisis libero semper at. Pellentesque sit amet egestas felis. Proin ullamcorper dolor in venenatis bibendum. In maximus, risus non dignissim maximus, massa lectus interdum enim, at vehicula libero dui non augue. 
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar 
+    lorem ut gravida luctus. Suspendisse lacinia mi ut mauris ultrices, vitae 
+    laoreet eros gravida. Pellentesque sit amet posuere elit, at mollis est. 
+    Aliquam pharetra enim quis ultricies placerat. Mauris vulputate ipsum nunc,
+    nec congue leo gravida nec. Pellentesque et augue in quam rutrum eleifend 
+    nec ut est. Etiam cursus malesuada sem, at facilisis libero semper at. 
+    Pellentesque sit amet egestas felis. Proin ullamcorper dolor in venenatis
+    bibendum. In maximus, risus non dignissim maximus, massa lectus interdum enim, 
+    at vehicula libero dui non augue. 
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="card">
+  <div class="card-head">Lorem ipsum - dashboard</div>
+  <div class="card-body">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce pulvinar 
+    lorem ut gravida luctus. Suspendisse lacinia mi ut mauris ultrices, vitae 
+    laoreet eros gravida. Pellentesque sit amet posuere elit, at mollis est. 
+    Aliquam pharetra enim quis ultricies placerat. Mauris vulputate ipsum nunc,
+    nec congue leo gravida nec. Pellentesque et augue in quam rutrum eleifend 
+    nec ut est. Etiam cursus malesuada sem, at facilisis libero semper at. 
+    Pellentesque sit amet egestas felis. Proin ullamcorper dolor in venenatis
+    bibendum. In maximus, risus non dignissim maximus, massa lectus interdum enim, 
+    at vehicula libero dui non augue. 
   </div>
 </div>
